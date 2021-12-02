@@ -43,7 +43,7 @@ clf.fit(params_norm, labels)
 pred = clf.predict(test_params_norm)
 
 pred_frame = pd.DataFrame(columns=['filename', 'label'])
-filenames = ['sample%03d.wav' % i for i in range(0,300)]
+filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 print(pred_frame)

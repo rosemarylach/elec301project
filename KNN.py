@@ -42,7 +42,7 @@ predict = model.predict(test_params_norm)
 
 #output to csv
 pred_frame = pd.DataFrame(columns=['filename', 'label'])
-filenames = ['sample%03d.wav' % i for i in range(0,300)]
+filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': predict})
 
-pred_frame.to_csv('knn_predictions', encoding='utf-8', index=False)
+pred_frame.to_csv('knn_predictions1', encoding='utf-8', index=False)

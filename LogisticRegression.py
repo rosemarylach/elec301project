@@ -57,7 +57,7 @@ plt.show()
 pred = mlr.predict(test_params_norm)
 
 pred_frame = pd.DataFrame(columns=['filename', 'label'])
-filenames = ['sample%03d.wav' % i for i in range(0,300)]
+filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 # save features to csv
