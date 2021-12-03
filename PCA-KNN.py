@@ -37,7 +37,7 @@ params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
 # Only keep important components using PCA
-pca = PCA(n_components=60)
+pca = PCA(n_components=80)
 pca.fit(params_norm)
 
 pca_params = pca.transform(params_norm)

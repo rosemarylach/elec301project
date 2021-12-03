@@ -2,7 +2,7 @@ filename,label
 blues50.wav,blues
 blues51.wav,disco
 blues52.wav,jazz
-blues53.wav,jazz
+blues53.wav,country
 blues54.wav,reggae
 blues55.wav,blues
 blues56.wav,metal
@@ -17,7 +17,7 @@ blues64.wav,reggae
 blues65.wav,reggae
 blues66.wav,rock
 blues67.wav,reggae
-blues68.wav,country
+blues68.wav,reggae
 blues69.wav,reggae
 blues70.wav,metal
 classical120.wav,classical
@@ -94,7 +94,7 @@ hiphop338.wav,pop
 hiphop339.wav,pop
 hiphop340.wav,metal
 hiphop341.wav,hiphop
-hiphop342.wav,disco
+hiphop342.wav,reggae
 hiphop343.wav,metal
 hiphop344.wav,blues
 hiphop345.wav,hiphop
@@ -117,7 +117,7 @@ jazz411.wav,disco
 jazz412.wav,pop
 jazz413.wav,reggae
 jazz414.wav,jazz
-jazz415.wav,jazz
+jazz415.wav,reggae
 jazz416.wav,rock
 jazz417.wav,jazz
 jazz418.wav,jazz
@@ -149,7 +149,7 @@ pop543.wav,pop
 pop544.wav,country
 pop545.wav,pop
 pop546.wav,country
-pop547.wav,disco
+pop547.wav,pop
 pop548.wav,pop
 pop549.wav,pop
 pop550.wav,pop
@@ -157,7 +157,7 @@ pop551.wav,disco
 pop552.wav,pop
 pop553.wav,pop
 pop554.wav,pop
-pop555.wav,disco
+pop555.wav,pop
 pop556.wav,pop
 pop557.wav,pop
 pop558.wav,pop
@@ -166,12 +166,12 @@ pop560.wav,pop
 reggae611.wav,pop
 reggae612.wav,hiphop
 reggae613.wav,hiphop
-reggae614.wav,reggae
+reggae614.wav,disco
 reggae615.wav,country
 reggae616.wav,hiphop
 reggae617.wav,hiphop
 reggae618.wav,blues
-reggae619.wav,reggae
+reggae619.wav,country
 reggae620.wav,hiphop
 reggae621.wav,pop
 reggae622.wav,pop
@@ -184,8 +184,8 @@ reggae628.wav,jazz
 reggae629.wav,reggae
 reggae630.wav,disco
 rock681.wav,blues
-rock682.wav,hiphop
-rock683.wav,disco
+rock682.wav,disco
+rock683.wav,hiphop
 rock684.wav,rock
 rock685.wav,blues
 rock686.wav,rock

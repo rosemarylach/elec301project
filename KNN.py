@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
-import scipy
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 
 # read features from csv
@@ -35,16 +36,23 @@ test_params = test_features.loc[:, param_names].values
 params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
+x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_size = 0.25)
+# x_train = params_norm
+# x_test = test_params_norm
+# y_train = labels
+
 #generating and train model
-model = KNeighborsClassifier(n_neighbors = 5)
+model = KNeighborsClassifier(n_neighbors = 10)
 model.fit(params_norm, labels)
 
 #prediction
-predict = model.predict(test_params_norm)
+predict = model.predict(x_test)
+
+print(accuracy_score(predict, y_test))
 
 #output to csv
-pred_frame = pd.DataFrame(columns=['filename', 'label'])
-filenames = test_features.loc[:, 'filename'].values
-pred_frame = pd.DataFrame({'filename': filenames, 'label': predict})
+# pred_frame = pd.DataFrame(columns=['filename', 'label'])
+# filenames = test_features.loc[:, 'filename'].values
+# pred_frame = pd.DataFrame({'filename': filenames, 'label': predict})
 
-pred_frame.to_csv('Predictions/knn_predictions1.csv', encoding='utf-8', index=False)
+# pred_frame.to_csv('Predictions/knn_predictions1.csv', encoding='utf-8', index=False)

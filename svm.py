@@ -6,10 +6,8 @@ from sklearn import svm
 from sklearn.preprocessing import StandardScaler
 
 # read features from csv
-# features = pd.read_csv('features.csv')
-# test_features = pd.read_csv('test_features.csv')
-features = pd.read_csv('splitfeatures-train.csv')
-test_features = pd.read_csv('splitfeatures-test.csv')
+features = pd.read_csv('features.csv')
+test_features = pd.read_csv('test_features.csv')
 
 # create feature dataframe
 feature_names = ["idx", "mean", "stdev", "skew", "kurtosis", "zcr_mean", "zcr_stdev",

@@ -1,17 +1,11 @@
+# import libraries
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-
-genres = ['blues' 'classical' 'country' 'disco' 'hiphop' 'jazz' 'metal' 'pop'
- 'reggae' 'rock'] 
 
 # read features from csv
 features = pd.read_csv('features.csv')
@@ -35,6 +29,7 @@ label_names = feature_names[-1]
 # extract parameters and labels
 params = features.loc[:, param_names].values
 labels = features.loc[:, label_names].values
+
 test_params = test_features.loc[:, param_names].values
 
 # normalize data
@@ -46,41 +41,15 @@ x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_si
 # x_test = test_params_norm
 # y_train = labels
 
-# Run KNN
-knn = KNeighborsClassifier(n_neighbors = 10)
-knn.fit(x_train, y_train)
-knn_predict = knn.predict_proba(x_test)
-
-# Run Logistic Regression
-mlr = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
-mlr.fit(x_train, y_train)
-mlr_predict= mlr.predict_proba(x_test)
-
-# Run MLP
-mlp = MLPClassifier(solver='sgd', hidden_layer_sizes=(100), learning_rate_init=0.01, max_iter=10000, random_state=1)
+mlp = MLPClassifier(solver='sgd', hidden_layer_sizes=(100), max_iter=10000, learning_rate_init=0.01, random_state=1)
 mlp.fit(x_train, y_train)
-mlp_predict = mlp.predict_proba(x_test)
-
-# Run SVM
-svm = SVC(gamma = 0.01, probability=True) # gamma = 0.01
-svm.fit(x_train, y_train)
-svm_predict = svm.predict_proba(x_test)
-
-# Run Random Forest
-rf = RandomForestClassifier(n_estimators=100, random_state=0, criterion='entropy', max_features=15)
-rf.fit(x_train, y_train)
-rf_predict = rf.predict_proba(x_test)
-
-# Aggregate Data
-all_probs = 1.3*rf_predict + svm_predict + 1.1*mlp_predict + mlr_predict + 1.1*knn_predict
-pred = mlr.classes_[np.argmax(all_probs, axis=1)]
+pred = mlp.predict(x_test)
 
 print(accuracy_score(pred, y_test))
 
-# create final dataframe
 # pred_frame = pd.DataFrame(columns=['filename', 'label'])
 # filenames = test_features.loc[:, 'filename'].values
 # pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 # save features to csv
-# pred_frame.to_csv('Predictions/ensemble.csv', index=False)
+# pred_frame.to_csv('Predictions/mlp_results.csv', index=False)
