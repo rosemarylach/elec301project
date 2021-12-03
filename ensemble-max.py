@@ -41,10 +41,10 @@ test_params = test_features.loc[:, param_names].values
 params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
-x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_size = 0.25)
-# x_train = params_norm
-# x_test = test_params_norm
-# y_train = labels
+# x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_size = 0.25)
+x_train = params_norm
+x_test = test_params_norm
+y_train = labels
 
 # Run KNN
 knn = KNeighborsClassifier(n_neighbors = 10)
@@ -72,15 +72,15 @@ rf.fit(x_train, y_train)
 rf_predict = rf.predict_proba(x_test)
 
 # Aggregate Data
-all_probs = 2*rf_predict + svm_predict + 1.1*mlp_predict + mlr_predict + 1.3*knn_predict
-pred = mlr.classes_[np.argmax(all_probs, axis=1)]
+combined_probs = np.hstack((rf_predict, svm_predict, mlp_predict, mlr_predict, knn_predict))
+pred = mlr.classes_[np.argmax(combined_probs, axis=1)%10]
 
-print(accuracy_score(pred, y_test))
+# print(accuracy_score(pred, y_test))
 
 # create final dataframe
-# pred_frame = pd.DataFrame(columns=['filename', 'label'])
-# filenames = test_features.loc[:, 'filename'].values
-# pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
+pred_frame = pd.DataFrame(columns=['filename', 'label'])
+filenames = test_features.loc[:, 'filename'].values
+pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 # save features to csv
-# pred_frame.to_csv('Predictions/ensemble.csv', index=False)
+pred_frame.to_csv('Predictions/ensemble-max.csv', index=False)

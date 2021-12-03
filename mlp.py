@@ -36,20 +36,20 @@ test_params = test_features.loc[:, param_names].values
 params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
-x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_size = 0.25)
-# x_train = params_norm
-# x_test = test_params_norm
-# y_train = labels
+# x_train, x_test, y_train, y_test = train_test_split(params_norm, labels, test_size = 0.25)
+x_train = params_norm
+x_test = test_params_norm
+y_train = labels
 
 mlp = MLPClassifier(solver='sgd', hidden_layer_sizes=(100), max_iter=10000, learning_rate_init=0.01, random_state=1)
 mlp.fit(x_train, y_train)
 pred = mlp.predict(x_test)
 
-print(accuracy_score(pred, y_test))
+# print(accuracy_score(pred, y_test))
 
 # pred_frame = pd.DataFrame(columns=['filename', 'label'])
-# filenames = test_features.loc[:, 'filename'].values
-# pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
+filenames = test_features.loc[:, 'filename'].values
+pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 # save features to csv
-# pred_frame.to_csv('Predictions/mlp_results.csv', index=False)
+pred_frame.to_csv('Predictions/mlp_results.csv', index=False)

@@ -1,5 +1,5 @@
 filename,label
-sample000.wav,country
+sample000.wav,blues
 sample001.wav,reggae
 sample002.wav,blues
 sample003.wav,disco
@@ -15,7 +15,7 @@ sample012.wav,country
 sample013.wav,country
 sample014.wav,hiphop
 sample015.wav,disco
-sample016.wav,jazz
+sample016.wav,blues
 sample017.wav,rock
 sample018.wav,country
 sample019.wav,classical
@@ -69,7 +69,7 @@ sample066.wav,disco
 sample067.wav,jazz
 sample068.wav,rock
 sample069.wav,metal
-sample070.wav,jazz
+sample070.wav,blues
 sample071.wav,hiphop
 sample072.wav,hiphop
 sample073.wav,country
@@ -86,14 +86,14 @@ sample083.wav,jazz
 sample084.wav,rock
 sample085.wav,rock
 sample086.wav,metal
-sample087.wav,rock
+sample087.wav,disco
 sample088.wav,metal
 sample089.wav,metal
 sample090.wav,reggae
 sample091.wav,blues
 sample092.wav,blues
 sample093.wav,hiphop
-sample094.wav,rock
+sample094.wav,reggae
 sample095.wav,metal
 sample096.wav,classical
 sample097.wav,rock
@@ -109,7 +109,7 @@ sample106.wav,hiphop
 sample107.wav,jazz
 sample108.wav,blues
 sample109.wav,disco
-sample110.wav,country
+sample110.wav,blues
 sample111.wav,jazz
 sample112.wav,metal
 sample113.wav,pop
@@ -134,14 +134,14 @@ sample131.wav,metal
 sample132.wav,classical
 sample133.wav,country
 sample134.wav,country
-sample135.wav,blues
+sample135.wav,country
 sample136.wav,hiphop
 sample137.wav,blues
 sample138.wav,metal
 sample139.wav,classical
 sample140.wav,country
 sample141.wav,rock
-sample142.wav,reggae
+sample142.wav,rock
 sample143.wav,reggae
 sample144.wav,pop
 sample145.wav,classical
@@ -153,7 +153,7 @@ sample150.wav,rock
 sample151.wav,blues
 sample152.wav,disco
 sample153.wav,hiphop
-sample154.wav,country
+sample154.wav,blues
 sample155.wav,disco
 sample156.wav,country
 sample157.wav,rock
@@ -165,7 +165,7 @@ sample162.wav,reggae
 sample163.wav,reggae
 sample164.wav,metal
 sample165.wav,hiphop
-sample166.wav,country
+sample166.wav,pop
 sample167.wav,metal
 sample168.wav,hiphop
 sample169.wav,pop
@@ -200,9 +200,9 @@ sample197.wav,blues
 sample198.wav,hiphop
 sample199.wav,disco
 sample200.wav,classical
-sample201.wav,pop
+sample201.wav,disco
 sample202.wav,blues
-sample203.wav,rock
+sample203.wav,country
 sample204.wav,hiphop
 sample205.wav,country
 sample206.wav,metal
@@ -218,7 +218,7 @@ sample215.wav,pop
 sample216.wav,rock
 sample217.wav,country
 sample218.wav,country
-sample219.wav,disco
+sample219.wav,reggae
 sample220.wav,disco
 sample221.wav,rock
 sample222.wav,rock
@@ -230,7 +230,7 @@ sample227.wav,metal
 sample228.wav,reggae
 sample229.wav,reggae
 sample230.wav,reggae
-sample231.wav,disco
+sample231.wav,hiphop
 sample232.wav,pop
 sample233.wav,hiphop
 sample234.wav,classical
