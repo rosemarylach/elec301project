@@ -6,8 +6,10 @@ from sklearn import svm
 from sklearn.preprocessing import StandardScaler
 
 # read features from csv
-features = pd.read_csv('features.csv')
-test_features = pd.read_csv('test_features.csv')
+# features = pd.read_csv('features.csv')
+# test_features = pd.read_csv('test_features.csv')
+features = pd.read_csv('splitfeatures-train.csv')
+test_features = pd.read_csv('splitfeatures-test.csv')
 
 # create feature dataframe
 feature_names = ["idx", "mean", "stdev", "skew", "kurtosis", "zcr_mean", "zcr_stdev",
@@ -34,7 +36,7 @@ params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
 # classifier
-clf = svm.SVC(gamma = 0.001) # gamma = 0.01, 0.1, etc.
+clf = svm.SVC(gamma = 0.01) # gamma = 0.01, 0.1, etc.
 
 # learning
 clf.fit(params_norm, labels)
@@ -46,6 +48,6 @@ pred_frame = pd.DataFrame(columns=['filename', 'label'])
 filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
-print(pred_frame)
+# print(pred_frame)
 # save features to csv
-#pred_frame.to_csv('svm_predictions', encoding='utf-8', index=False)
+pred_frame.to_csv('Predictions/svm_predictions.csv', encoding='utf-8', index=False)

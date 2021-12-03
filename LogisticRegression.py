@@ -10,8 +10,10 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 
 # read features from csv
-features = pd.read_csv('features.csv')
-test_features = pd.read_csv('test_features.csv')
+# features = pd.read_csv('features.csv')
+# test_features = pd.read_csv('test_features.csv')
+features = pd.read_csv('splitfeatures-train.csv')
+test_features = pd.read_csv('splitfeatures-test.csv')
 
 # create feature dataframe
 feature_names = ["idx", "mean", "stdev", "skew", "kurtosis", "zcr_mean", "zcr_stdev",
@@ -61,4 +63,5 @@ filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': pred})
 
 # save features to csv
-pred_frame.to_csv(r'C:\Users\elija\PycharmProjects\Music Classifier\mlr_class_pred3.csv', index=False)
+# pred_frame.to_csv(r'C:\Users\elija\PycharmProjects\Music Classifier\mlr_class_pred3.csv', index=False)
+pred_frame.to_csv('Predictions/lr_pred.csv', index=False)

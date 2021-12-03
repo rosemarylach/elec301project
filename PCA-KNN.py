@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import scipy
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 from sklearn.neighbors import KNeighborsClassifier
 
 
@@ -35,16 +36,23 @@ test_params = test_features.loc[:, param_names].values
 params_norm = StandardScaler().fit_transform(params)
 test_params_norm = StandardScaler().fit_transform(test_params)
 
+# Only keep important components using PCA
+pca = PCA(n_components=60)
+pca.fit(params_norm)
+
+pca_params = pca.transform(params_norm)
+pca_test_params = pca.transform(test_params_norm)
+
 #generating and train model
-model = KNeighborsClassifier(n_neighbors = 5)
-model.fit(params_norm, labels)
+model = KNeighborsClassifier(n_neighbors= 10)
+model.fit(pca_params, labels)
 
 #prediction
-predict = model.predict(test_params_norm)
+predict = model.predict(pca_test_params)
 
 #output to csv
 pred_frame = pd.DataFrame(columns=['filename', 'label'])
 filenames = test_features.loc[:, 'filename'].values
 pred_frame = pd.DataFrame({'filename': filenames, 'label': predict})
 
-pred_frame.to_csv('Predictions/knn_predictions1.csv', encoding='utf-8', index=False)
+pred_frame.to_csv('Predictions/pca-knn.csv', encoding='utf-8', index=False)
